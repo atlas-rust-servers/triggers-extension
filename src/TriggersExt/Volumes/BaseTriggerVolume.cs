@@ -27,7 +27,6 @@ public abstract class BaseTriggerVolume<T> : MonoBehaviour, IGizmosDrawer where 
         set => transform.rotation = value;
     }
 
-
     public event Action<BaseEntity> OnEntityWalksIn, OnEntityWalksOut;
 
 #region Unity
