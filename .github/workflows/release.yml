@@ -42,6 +42,14 @@ jobs:
         cd ..
         echo "[Download References] Moving Oxide dlls"
         Move-Item Oxide\RustDedicated_Data\Managed\*.dll src\dependencies\ -Force
+        
+        echo "[Download References] Downloading Oxide.Ext.UiFramework.dll"
+        Invoke-WebRequest -Uri "https://github.com/ilovepatatos-rust/gizmos-extension/releases/latest/download/Oxide.Ext.GizmosExt.dll" -OutFile "Oxide.Ext.GizmosExt.dll"
+        Move-Item -Path "Oxide.Ext.GizmosExt.dll" -Destination "src\dependencies\" -Force
+        
+        echo "[Download References] Downloading Oxide.Ext.UiFramework.dll"
+        Invoke-WebRequest -Uri "https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Oxide.Ext.IlovepatatosExt.dll" -OutFile "Oxide.Ext.IlovepatatosExt.dll"
+        Move-Item -Path "Oxide.Ext.IlovepatatosExt.dll" -Destination "src\dependencies\" -Force
 
     - name: Restore NuGet packages
       run: msbuild -t:restore src/TriggersExt/TriggersExt.csproj
