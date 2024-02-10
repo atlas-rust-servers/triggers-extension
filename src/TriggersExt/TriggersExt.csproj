@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <AssemblyName>Oxide.Ext.TriggersExt</AssemblyName>
+        <RootNamespace>Oxide.Ext.TriggersExt</RootNamespace>
+
+        <!-- removes the .pdb file from the output folder -->
+        <DebugType>embedded</DebugType>
+        <LangVersion>11</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\dependencies\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Facepunch.UnityEngine">
+          <HintPath>..\dependencies\Facepunch.UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="Oxide.Core">
+            <HintPath>..\dependencies\Oxide.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Oxide.Ext.GizmosExt">
+          <HintPath>..\dependencies\Oxide.Ext.GizmosExt.dll</HintPath>
+        </Reference>
+        <Reference Include="Oxide.Ext.IlovepatatosExt">
+          <HintPath>..\dependencies\Oxide.Ext.IlovepatatosExt.dll</HintPath>
+        </Reference>
+        <Reference Include="Rust.Global">
+          <HintPath>..\dependencies\Rust.Global.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\dependencies\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\dependencies\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <!-- make all references non-private, so they won't be copied to the output folder -->
+    <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
+        </ItemGroup>
+    </Target>
+
+    <!-- remove the .deps.json file from the output folder -->
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="if exist &quot;$(OutDir)*.deps.json&quot; del &quot;$(OutDir)*.deps.json&quot;" />
+    </Target>
+
+</Project>
