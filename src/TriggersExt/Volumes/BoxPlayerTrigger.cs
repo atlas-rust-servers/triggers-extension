@@ -9,10 +9,11 @@ namespace Oxide.Ext.TriggersExt;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public class BoxPlayerTrigger : BaseTriggerVolume<BoxCollider>, IPlayerTrigger
 {
-    public Vector3 Size
+    [Serializable]
+    public class Settings
     {
-        get => Collider.size;
-        set => Collider.size = value;
+        public TransformValue Offset;
+        public Vector3 Size = Vector3.one;
     }
 
     public event Action<BasePlayer> OnPlayerWalksIn, OnPlayerWalksOut;
@@ -23,10 +24,16 @@ public class BoxPlayerTrigger : BaseTriggerVolume<BoxCollider>, IPlayerTrigger
         var trigger = new GameObject(nameof(BoxPlayerTrigger)).AddComponent<BoxPlayerTrigger>();
         trigger.Position = pos;
         trigger.Rotation = rot;
-        trigger.Collider.size = size;
+        trigger.Size = size;
         trigger.OnPlayerWalksIn += onPlayerWalksIn;
         trigger.OnPlayerWalksOut += onPlayerWalksOut;
         return trigger;
+    }
+    
+    public Vector3 Size
+    {
+        get => Collider.size;
+        set => Collider.size = value;
     }
 
     protected override void Awake()

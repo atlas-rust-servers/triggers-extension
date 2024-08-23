@@ -9,6 +9,13 @@ namespace Oxide.Ext.TriggersExt;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTrigger
 {
+    [Serializable]
+    public class Settings
+    {
+        public float Radius;
+        public Vector3 Offset;
+    }
+    
     public event Action<BasePlayer> OnPlayerWalksIn, OnPlayerWalksOut;
 
     public static SpherePlayerTrigger Create(Vector3 pos, float radius, Action<BasePlayer> onPlayerWalksIn = null,
@@ -16,7 +23,7 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
     {
         var trigger = new GameObject(nameof(SpherePlayerTrigger)).AddComponent<SpherePlayerTrigger>();
         trigger.Position = pos;
-        trigger.Collider.radius = radius;
+        trigger.Size = radius;
         trigger.OnPlayerWalksIn += onPlayerWalksIn;
         trigger.OnPlayerWalksOut += onPlayerWalksOut;
         return trigger;
@@ -26,10 +33,16 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
         Action<BasePlayer> onPlayerWalksOut = null)
     {
         var trigger = obj.AddComponent<SpherePlayerTrigger>();
-        trigger.Collider.radius = radius;
+        trigger.Size = radius;
         trigger.OnPlayerWalksIn += onPlayerWalksIn;
         trigger.OnPlayerWalksOut += onPlayerWalksOut;
         return trigger;
+    }
+
+    public float Size
+    {
+        get => Collider.radius;
+        set => Collider.radius = value;
     }
 
     protected override void Awake()
@@ -69,7 +82,7 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
 
     public override bool Contains(Vector3 pos)
     {
-        return Collider != null && Vector3.Distance(Collider.transform.position + Collider.center, pos) <= Collider.radius;
+        return Collider != null && Vector3.Distance(Collider.transform.position + Collider.center, pos) <= Size;
     }
 
     public override Vector3 GetRandomPos(float offset = 1, float yOffset = 10, float range = 25)
@@ -81,7 +94,7 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
 
     public override void DrawGizmos(IEnumerable<BasePlayer> players, float duration)
     {
-        OxideGizmos.Sphere(players, Position, Collider.radius, Color.green, duration);
+        OxideGizmos.Sphere(players, Position, Size, Color.green, duration);
     }
 
     public IEnumerable<BasePlayer> GetPlayers()
