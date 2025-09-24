@@ -15,7 +15,7 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
         public float Radius;
         public Vector3 Offset;
     }
-    
+
     public event Action<BasePlayer> OnPlayerWalksIn, OnPlayerWalksOut;
 
     public static SpherePlayerTrigger Create(Vector3 pos, float radius, Action<BasePlayer> onPlayerWalksIn = null,
@@ -99,6 +99,10 @@ public class SpherePlayerTrigger : BaseTriggerVolume<SphereCollider>, IPlayerTri
 
     public IEnumerable<BasePlayer> GetPlayers()
     {
-        return Entities.Where(entity => entity is BasePlayer).Cast<BasePlayer>();
+        foreach (BaseEntity entity in Entities)
+        {
+            if (entity is BasePlayer player && player != null) // != to use unity's NRE override
+                yield return player;
+        }
     }
 }

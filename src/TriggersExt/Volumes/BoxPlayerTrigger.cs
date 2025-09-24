@@ -29,7 +29,7 @@ public class BoxPlayerTrigger : BaseTriggerVolume<BoxCollider>, IPlayerTrigger
         trigger.OnPlayerWalksOut += onPlayerWalksOut;
         return trigger;
     }
-    
+
     public Vector3 Size
     {
         get => Collider.size;
@@ -90,6 +90,10 @@ public class BoxPlayerTrigger : BaseTriggerVolume<BoxCollider>, IPlayerTrigger
 
     public IEnumerable<BasePlayer> GetPlayers()
     {
-        return Entities.Where(entity => entity is BasePlayer).Cast<BasePlayer>();
+        foreach (BaseEntity entity in Entities)
+        {
+            if (entity is BasePlayer player && player != null) // != to use unity's NRE override
+                yield return player;
+        }
     }
 }
