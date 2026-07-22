@@ -6,15 +6,44 @@
         <Nullable>disable</Nullable>
         <AssemblyName>Oxide.Ext.TriggersExt</AssemblyName>
         <RootNamespace>Oxide.Ext.TriggersExt</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>Oxide;Carbon</Platforms>
 
         <!-- removes the .pdb file from the output folder -->
         <DebugType>embedded</DebugType>
         <LangVersion>11</LangVersion>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Carbon' ">
+        <DefineConstants>TRACE;DEBUG;CARBON</DefineConstants>
+        <AssemblyName>Carbon.Ext.TriggersExt</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Oxide' ">
+        <DefineConstants>TRACE;DEBUG;OXIDE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Carbon' ">
+        <DefineConstants>TRACE;CARBON</DefineConstants>
+        <AssemblyName>Carbon.Ext.TriggersExt</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Oxide' ">
+        <DefineConstants>TRACE;OXIDE</DefineConstants>
+    </PropertyGroup>
+
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
           <HintPath>..\dependencies\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Carbon.Common" Condition=" '$(Platform)' == 'Carbon'">
+          <HintPath>..\dependencies\Carbon.Common.dll</HintPath>
+        </Reference>
+        <Reference Include="Carbon.SDK" Condition=" '$(Platform)' == 'Carbon'">
+          <HintPath>..\dependencies\Carbon.SDK.dll</HintPath>
+        </Reference>
+        <Reference Include="Facepunch.Console">
+          <HintPath>..\dependencies\Facepunch.Console.dll</HintPath>
         </Reference>
         <Reference Include="Facepunch.Network">
           <HintPath>..\dependencies\Facepunch.Network.dll</HintPath>
@@ -22,14 +51,20 @@
         <Reference Include="Facepunch.UnityEngine">
           <HintPath>..\dependencies\Facepunch.UnityEngine.dll</HintPath>
         </Reference>
-        <Reference Include="Oxide.Core">
+        <Reference Include="Oxide.Core" Condition=" '$(Platform)' == 'Oxide'">
             <HintPath>..\dependencies\Oxide.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Oxide.Ext.GizmosExt">
+        <Reference Include="Oxide.Ext.GizmosExt" Condition=" '$(Platform)' == 'Oxide'">
           <HintPath>..\dependencies\Oxide.Ext.GizmosExt.dll</HintPath>
         </Reference>
-        <Reference Include="Oxide.Ext.IlovepatatosExt">
+        <Reference Include="Carbon.Ext.GizmosExt" Condition=" '$(Platform)' == 'Carbon'">
+          <HintPath>..\dependencies\Carbon.Ext.GizmosExt.dll</HintPath>
+        </Reference>
+        <Reference Include="Oxide.Ext.IlovepatatosExt" Condition=" '$(Platform)' == 'Oxide'">
           <HintPath>..\dependencies\Oxide.Ext.IlovepatatosExt.dll</HintPath>
+        </Reference>
+        <Reference Include="Carbon.Ext.IlovepatatosExt" Condition=" '$(Platform)' == 'Carbon'">
+          <HintPath>..\dependencies\Carbon.Ext.IlovepatatosExt.dll</HintPath>
         </Reference>
         <Reference Include="Rust.Global">
           <HintPath>..\dependencies\Rust.Global.dll</HintPath>

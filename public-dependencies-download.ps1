@@ -11,7 +11,9 @@ $tmpDir = New-Item -ItemType Directory -Force -Path "$env:TEMP\download-dependen
 
 $urls = @(
 "https://github.com/ilovepatatos-rust/gizmos-extension/releases/latest/download/Oxide.Ext.GizmosExt.dll",
-"https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Oxide.Ext.IlovepatatosExt.dll"
+"https://github.com/ilovepatatos-rust/gizmos-extension/releases/latest/download/Carbon.Ext.GizmosExt.dll",
+"https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Oxide.Ext.IlovepatatosExt.dll",
+"https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Carbon.Ext.IlovepatatosExt.dll"
 )
 
 foreach ($url in $urls)

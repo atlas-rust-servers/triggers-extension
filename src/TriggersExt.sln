@@ -4,10 +4,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriggersExt", "TriggersExt\
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Release|Any CPU = Release|Any CPU
+		Debug|Carbon = Debug|Carbon
+		Debug|Oxide = Debug|Oxide
+		Release|Carbon = Release|Carbon
+		Release|Oxide = Release|Oxide
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Carbon.ActiveCfg = Debug|Carbon
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Carbon.Build.0 = Debug|Carbon
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Oxide.ActiveCfg = Debug|Oxide
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Oxide.Build.0 = Debug|Oxide
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Carbon.ActiveCfg = Release|Carbon
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Carbon.Build.0 = Release|Carbon
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Oxide.ActiveCfg = Release|Oxide
+		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Oxide.Build.0 = Release|Oxide
 	EndGlobalSection
 EndGlobal
