@@ -31,6 +31,9 @@
         <Reference Include="Oxide.Ext.IlovepatatosExt">
           <HintPath>..\dependencies\Oxide.Ext.IlovepatatosExt.dll</HintPath>
         </Reference>
+        <Reference Include="Rust.Data">
+          <HintPath>..\dependencies\Rust.Data.dll</HintPath>
+        </Reference>
         <Reference Include="Rust.Global">
           <HintPath>..\dependencies\Rust.Global.dll</HintPath>
         </Reference>
