@@ -1,0 +1,22 @@
+{
+  "outputDirectory": "./src/dependencies",
+  "publicReleases": [
+    {
+      "name": "Oxide.Ext.GizmosExt",
+      "url": "https://github.com/atlas-rust-servers/gizmos-extension/releases/latest/download/Oxide.Ext.GizmosExt.dll",
+      "frameworks": [
+        "Oxide"
+      ]
+    },
+    {
+      "name": "Oxide.Ext.IlovepatatosExt",
+      "url": "https://github.com/atlas-rust-servers/ilovepatatos-extension/releases/latest/download/Oxide.Ext.IlovepatatosExt.dll",
+      "frameworks": [
+        "Oxide"
+      ]
+    }
+  ],
+  "privateReleases": [],
+  "githubNuget": [],
+  "deleteDlls": []
+}
