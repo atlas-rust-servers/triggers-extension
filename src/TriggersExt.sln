@@ -4,19 +4,43 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriggersExt", "TriggersExt\
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Carbon = Debug|Carbon
-		Debug|Oxide = Debug|Oxide
-		Release|Carbon = Release|Carbon
-		Release|Oxide = Release|Oxide
+		1. Main|Windows = 1. Main|Windows
+		1. Main|Linux = 1. Main|Linux
+		2. Staging|Windows = 2. Staging|Windows
+		2. Staging|Linux = 2. Staging|Linux
+		3. Oxide|Windows = 3. Oxide|Windows
+		3. Oxide|Linux = 3. Oxide|Linux
+		4. Oxide Staging|Windows = 4. Oxide Staging|Windows
+		4. Oxide Staging|Linux = 4. Oxide Staging|Linux
+		5. Carbon|Windows = 5. Carbon|Windows
+		5. Carbon|Linux = 5. Carbon|Linux
+		6. Carbon Staging|Windows = 6. Carbon Staging|Windows
+		6. Carbon Staging|Linux = 6. Carbon Staging|Linux
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Carbon.ActiveCfg = Debug|Carbon
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Carbon.Build.0 = Debug|Carbon
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Oxide.ActiveCfg = Debug|Oxide
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Debug|Oxide.Build.0 = Debug|Oxide
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Carbon.ActiveCfg = Release|Carbon
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Carbon.Build.0 = Release|Carbon
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Oxide.ActiveCfg = Release|Oxide
-		{E9799190-39EA-4FC9-8653-060DB5429778}.Release|Oxide.Build.0 = Release|Oxide
+		{E9799190-39EA-4FC9-8653-060DB5429778}.1. Main|Windows.ActiveCfg = 1. Main|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.1. Main|Windows.Build.0 = 1. Main|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.1. Main|Linux.ActiveCfg = 1. Main|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.1. Main|Linux.Build.0 = 1. Main|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.2. Staging|Windows.ActiveCfg = 2. Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.2. Staging|Windows.Build.0 = 2. Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.2. Staging|Linux.ActiveCfg = 2. Staging|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.2. Staging|Linux.Build.0 = 2. Staging|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.3. Oxide|Windows.ActiveCfg = 3. Oxide|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.3. Oxide|Windows.Build.0 = 3. Oxide|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.3. Oxide|Linux.ActiveCfg = 3. Oxide|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.3. Oxide|Linux.Build.0 = 3. Oxide|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.4. Oxide Staging|Windows.ActiveCfg = 4. Oxide Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.4. Oxide Staging|Windows.Build.0 = 4. Oxide Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.4. Oxide Staging|Linux.ActiveCfg = 4. Oxide Staging|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.4. Oxide Staging|Linux.Build.0 = 4. Oxide Staging|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.5. Carbon|Windows.ActiveCfg = 5. Carbon|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.5. Carbon|Windows.Build.0 = 5. Carbon|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.5. Carbon|Linux.ActiveCfg = 5. Carbon|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.5. Carbon|Linux.Build.0 = 5. Carbon|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.6. Carbon Staging|Windows.ActiveCfg = 6. Carbon Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.6. Carbon Staging|Windows.Build.0 = 6. Carbon Staging|Windows
+		{E9799190-39EA-4FC9-8653-060DB5429778}.6. Carbon Staging|Linux.ActiveCfg = 6. Carbon Staging|Linux
+		{E9799190-39EA-4FC9-8653-060DB5429778}.6. Carbon Staging|Linux.Build.0 = 6. Carbon Staging|Linux
 	EndGlobalSection
 EndGlobal

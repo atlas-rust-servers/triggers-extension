@@ -4,57 +4,23 @@ on:
   push:
     branches:
       - main
+      - staging
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
 jobs:
-  build:
-    runs-on: windows-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4.1.0
-      with:
-        fetch-depth: 0 # Necessary to fetch all tags for version calculation
-
-    - name: Setup MSBuild Path
-      uses: microsoft/setup-msbuild@v2
-
-    - name: Download References
-      shell: pwsh
-      run: |
-        .\rust-dependencies-download.ps1
-        .\public-dependencies-download.ps1
-
-    - name: Restore NuGet packages
-      run: msbuild -t:restore src/TriggersExt/TriggersExt.csproj /p:Platform=Oxide
-
-    - name: Build Oxide DLL
-      run: msbuild src/TriggersExt/TriggersExt.csproj /p:Configuration=Release /p:Platform=Oxide
-
-    - name: Build Carbon DLL
-      run: msbuild src/TriggersExt/TriggersExt.csproj /p:Configuration=Release /p:Platform=Carbon
-
-    - name: Automated Versioning
-      if: github.ref == 'refs/heads/main'
-      run: |
-        git fetch --tags
-        $latestTag = git tag -l --sort=-v:refname | Select-Object -First 1
-        if (-not $latestTag) {
-          $latestTag = "v1.0.0"
-        }
-        $versionNumbers = $latestTag.TrimStart('v').Split('.')
-        $newPatch = [int]$versionNumbers[2] + 1
-        $newTag = "v{0}.{1}.{2}" -f $versionNumbers[0], $versionNumbers[1], $newPatch
-        git tag $newTag
-        git push origin $newTag
-        echo "New Tag: $newTag"
-        echo "NEW_TAG=$newTag" | Out-File -FilePath $env:GITHUB_ENV -Append
-      shell: pwsh
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Release Assets
-      run: |
-        gh release create ${{ env.NEW_TAG }} "src\TriggersExt\bin\Oxide\Release\net48\Oxide.Ext.TriggersExt.dll" "src\TriggersExt\bin\Carbon\Release\net48\Carbon.Ext.TriggersExt.dll" --title "Release ${{ env.NEW_TAG }}"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  release:
+    uses: ilovepatatos-rust/github-workflows/.github/workflows/release.yml@main
+    with:
+      project: src/TriggersExt/TriggersExt.csproj
+      asset: Oxide.Ext.TriggersExt.dll, Carbon.Ext.TriggersExt.dll
+      targets: oxide, carbon
+      publicize: false
+      keep_versions: 3
+    secrets: inherit

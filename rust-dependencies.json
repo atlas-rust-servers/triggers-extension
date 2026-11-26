@@ -1,0 +1,44 @@
+{
+  "outputDirectory": "./src/dependencies",
+  "publicReleases": [
+    {
+      "name": "Oxide.Ext.GizmosExt",
+      "url": "https://github.com/ilovepatatos-rust/gizmos-extension/releases/latest/download/Oxide.Ext.GizmosExt.dll",
+      "frameworks": [
+        "Oxide"
+      ]
+    },
+    {
+      "name": "Carbon.Ext.GizmosExt",
+      "url": "https://github.com/ilovepatatos-rust/gizmos-extension/releases/latest/download/Carbon.Ext.GizmosExt.dll",
+      "frameworks": [
+        "Carbon"
+      ]
+    },
+    {
+      "name": "Oxide.Ext.IlovepatatosExt",
+      "url": "https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Oxide.Ext.IlovepatatosExt.dll",
+      "frameworks": [
+        "Oxide"
+      ]
+    },
+    {
+      "name": "Carbon.Ext.IlovepatatosExt",
+      "url": "https://github.com/ilovepatatos-rust/ilovepatatos-extension/releases/latest/download/Carbon.Ext.IlovepatatosExt.dll",
+      "frameworks": [
+        "Carbon"
+      ]
+    }
+  ],
+  "privateReleases": [],
+  "githubNuget": [],
+  "deleteDlls": [
+    "UnityEngine.ARModule.dll",
+    "UnityEngine.NVIDIAModule.dll",
+    "Microsoft.Bcl.AsyncInterfaces.dll",
+    "Microsoft.Win32.Registry.dll",
+    "System.Text.Encodings.Web.dll",
+    "System.Numerics.Vectors.dll",
+    "Newtonsoft.Json.dll"
+  ]
+}
